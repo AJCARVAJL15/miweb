@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Juego de Suma</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <H1>hola</H1>
-    <script>alert("chanchito feliz")</script>
+    <h1>Juego de Suma</h1>
+    <form id="agregarJugadorForm">
+        <label for="nombreJugador">Nombre del jugador: </label>
+        <input type="text" id="nombreJugador" />
+        <button type="submit">Agregar jugador</button>
+    </form>
+    <hr>
+    <h2>Jugadores agregados</h2>
+    <table id="jugadoresTabla">
+        <tr>
+            <th>Nombre</th>
+            <th>Valor</th>
+        </tr>
+    </table>
+    <hr>
+
+    <button id="agregarRondaBtn">Añadir ronda</button>
+    <h2>Total: <span id="totalSuma">0</span></h2>
+
+        <hr>
+    <h2>Puntajes por ronda</h2>
+    <table id="rondasTabla">
+        <tr>
+            <th>Ronda</th>
+            <!-- Aquí se agregarán las celdas con los puntajes de cada jugador dinámicamente desde JavaScript -->
+        </tr>
+    </table>
+    <script src="script.js"></script>
 </body>
 </html>
