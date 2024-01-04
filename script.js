@@ -39,6 +39,27 @@ function actualizarTabla() {
     actualizarTotal();
 }
 
+// Manejador de eventos para añadir ronda
+agregarRondaBtn.addEventListener('click', () => {
+    const puntajesRonda = [];
+    jugadores.forEach(jugador => {
+        const valor = parseInt(prompt(`Ingrese el valor para ${jugador.nombre} en la ronda:`));
+        if (!isNaN(valor)) {
+            jugador.valor += valor;
+            jugador.puntajes.push(valor);
+            puntajesRonda.push(`<td>${valor}</td>`);
+        }
+    });
+    rondasTabla.innerHTML += `
+        <tr>
+            <td>Ronda ${jugadores[0].puntajes.length}</td>
+            ${puntajesRonda.join('')}
+        </tr>
+    `;
+    actualizarTabla();
+});
+
+
 // Actualizar total de la suma
 function actualizarTotal() {
     let suma = jugadores.reduce((total, jugador) => total + jugador.valor, 0);
@@ -61,22 +82,3 @@ function actualizarTotal() {
     }
 }
 
-// Manejador de eventos para añadir ronda
-agregarRondaBtn.addEventListener('click', () => {
-    const puntajesRonda = [];
-    jugadores.forEach(jugador => {
-        const valor = parseInt(prompt(`Ingrese el valor para ${jugador.nombre} en la ronda:`));
-        if (!isNaN(valor)) {
-            jugador.valor += valor;
-            jugador.puntajes.push(valor);
-            puntajesRonda.push(`<td>${valor}</td>`);
-        }
-    });
-    rondasTabla.innerHTML += `
-        <tr>
-            <td>Ronda ${jugadores[0].puntajes.length}</td>
-            ${puntajesRonda.join('')}
-        </tr>
-    `;
-    actualizarTabla();
-});
